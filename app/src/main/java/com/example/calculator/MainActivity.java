@@ -2,7 +2,6 @@ package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.media.VolumeShaper;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -39,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void calculate() {
         String leftValue = binding.editLeft.getText().toString();
-        String rightValue = binding.editLeft.getText().toString();
+        String rightValue = binding.editRight.getText().toString();
+        String operator= binding.operator.getText().toString();
+
 
         if (leftValue.isEmpty() || rightValue.isEmpty()) {
             Toast.makeText(this, "숫자를 입력해주세요", Toast.LENGTH_SHORT).show();
@@ -51,21 +52,20 @@ public class MainActivity extends AppCompatActivity {
 
         float result = 0;
 
-        if (binding.operator.getText() == "+"){
+        if (operator.equals("+")){
             result=left+right;
-        }else if (binding.operator.getText() == "-"){
+        }else if (operator.equals ("-")){
             result=left-right;
-        }else if (binding.operator.getText() == "*"){
+        }else if (operator.equals("*")){
             result=left*right;
-        }else if (binding.operator.getText() == "/"){
+        }else if (operator.equals ("/")){
             if (right==0){
                 binding.last.setText("error");
                 return;
             }
             result=left/right;
-        }
+        }/*
 
-        /*
         switch (selectedOp) {
             case ADD:
                 result = left + right;
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 result = left / right;
                 break;
-        } */
+        }*/
 
 
         DecimalFormat formatter = new DecimalFormat("#.##");
