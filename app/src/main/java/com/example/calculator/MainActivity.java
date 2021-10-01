@@ -22,16 +22,16 @@ public class MainActivity extends AppCompatActivity {
 
         binding.buttonEnter.setOnClickListener(v -> calculate());
 
-        binding.buttonAdd.setOnClickListener(v ->{
+        binding.buttonAdd.setOnClickListener(v -> {
             binding.operator.setText("+");
         });
-        binding.buttonSubtract.setOnClickListener(v ->{
+        binding.buttonSubtract.setOnClickListener(v -> {
             binding.operator.setText("-");
         });
-        binding.buttonMultiply.setOnClickListener(v ->{
+        binding.buttonMultiply.setOnClickListener(v -> {
             binding.operator.setText("*");
         });
-        binding.buttonDivide.setOnClickListener(v ->{
+        binding.buttonDivide.setOnClickListener(v -> {
             binding.operator.setText("/");
         });
     }
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private void calculate() {
         String leftValue = binding.editLeft.getText().toString();
         String rightValue = binding.editRight.getText().toString();
-        String operator= binding.operator.getText().toString();
+        String operator = binding.operator.getText().toString();
 
 
         if (leftValue.isEmpty() || rightValue.isEmpty()) {
@@ -52,18 +52,18 @@ public class MainActivity extends AppCompatActivity {
 
         float result = 0;
 
-        if (operator.equals("+")){
-            result=left+right;
-        }else if (operator.equals ("-")){
-            result=left-right;
-        }else if (operator.equals("*")){
-            result=left*right;
-        }else if (operator.equals ("/")){
-            if (right==0){
+        if (operator.equals("+")) {
+            result = left + right;
+        } else if (operator.equals("-")) {
+            result = left - right;
+        } else if (operator.equals("*")) {
+            result = left * right;
+        } else if (operator.equals("/")) {
+            if (right == 0) {
                 binding.last.setText("error");
                 return;
             }
-            result=left/right;
+            result = left / right;
         }/*
 
         switch (selectedOp) {
